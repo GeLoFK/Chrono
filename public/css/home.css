@@ -1,0 +1,261 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('img/backgronud.png');
+    background-size: cover;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    padding: 3px 15px;
+    margin: 0 auto;
+}
+.header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+.first-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+.Logo {
+    font-family: 'Mongolian Baiti';
+    font-size: 48px;
+    margin-left: 100px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: inherit;
+}
+
+.navigation__box {
+    display: flex;
+    gap: 10px;
+    margin-right: 100px;
+}
+.navi {
+    font-size: 28px;
+}
+
+.second-page {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    margin-top: 40px;
+}
+.title__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title, .subtitle {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-title, .text-subtitle {
+    color: #ffffff;
+    font-size: 24px;
+}
+.create-room {
+    background-color: rgba(79, 75, 75, 0.5);
+    height: 65px;
+    width: 180px;
+    margin-top: 100px;
+    border-radius: 10px;
+}
+.text-button {
+    color: #ffffff;
+    font-size: 20px;
+}
+.Logo-image {
+}
+.img-logo {
+    height: 230px;
+    width: 250px;
+}
+
+.info_container {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(54, 54, 54, 0.5);
+    border-radius: 20px;
+}
+.img-info {
+    height: 450px;
+    width: 350px;
+}
+.info-text__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+.text-title2 {
+    color: #ffffff;
+    font-size: 32px;
+}
+.text-subtitle2 {
+    color: #ffffff;
+    font-size: 26px;
+}
+.help {
+    background-color: #c5c5c5;
+    color: #4d4d4d;
+    border: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: background-color 0.3s ease;
+    margin-right: 50px;
+}
+
+.help:hover {
+    background-color: #cccccc;
+}
+
+.way-to-room{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 130px;
+    height: 40px;
+    width: 1100px;
+    margin-left: 100px;
+    margin-top: 26px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.text-way {
+    color: #ffffff;
+    font-size: 20px;
+}
+.arrow {
+    height: 50px;
+    width: 30px;
+    color: #ffffff;
+}
+
+.third-page {
+    display: flex;
+    flex-direction: column;
+    height: 340px;
+    width: 100%;
+    background-color: rgba(96, 96, 96, 0.5);
+    border-radius: 120px;
+    margin-top: 20px;
+}
+.gallery__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-top: 20px;
+}
+.view__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    background-color: rgba(245, 237, 237, 0.5);
+    height: 180px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.view-title__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-title {
+    text-decoration: none;
+    color: #333;
+    font-size: 10.5px;
+    margin-bottom: 10px;
+}
+
+.view-subtitle__box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.view-img {
+    width: 75px;
+    height: 80px;
+}
+
+.view-LM__box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.LM-text {
+    text-decoration: none;
+    font-size: 10px;
+}
+.Check {
+    background-color: #e1ca71;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+}
+.comment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+.text-to-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 237, 237, 0.5);
+    margin-top: 20px;
+    height: 100px;
+    width: 1160px;
+}
+.footer__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+}
+.p-a-p {
+    font-size: 16px;
+}
+.navigation {
+    display: flex;
+    justify-content: center;
+}
+.navigation a {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 15px;
+}
+.navigation a:hover {
+    text-decoration: underline;
+}
+

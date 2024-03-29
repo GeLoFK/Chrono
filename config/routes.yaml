@@ -3,3 +3,19 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+
+login:
+    path: /login
+    controller: App\Controller\Auth\LoginController::login
+
+registration:
+    path: /registration
+    controller: App\Controller\Auth\RegistrationController::registration
+
+room:
+    path: /room
+    controller: App\Controller\Room\RoomController::room

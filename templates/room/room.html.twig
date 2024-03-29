@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room</title>
+    <link rel="stylesheet" href="{{ asset('css/room.css') }}">
+    <script src="{{ asset('js/room.js') }}"></script>
+</head>
+<body>
+<div class="page-container">
+    <div class="header">
+        <div class="first-page">
+            <button onclick="window.location.href = 'https://127.0.0.1:8000';" class="Logo">Chrono</button>
+            <div class="navigation__box">
+                <a class="navi">Info</a>
+                <a class="navi">Update</a>
+                <a class="navi" href="./login">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="first-container">
+        <div class="Choose__box">
+            <input type="text" id="videoLink" placeholder="Enter video link">
+            <button onclick="showVideo()">Confirm</button>
+        </div>
+        <div class="Link__box">
+            <div class="invite" id="copyText">
+                Copy link
+            </div>
+        </div>
+    </div>
+    <div class="second-container">
+        <div class="Video__box">
+
+        </div>
+    </div>
+    <div class="third-container">
+        <div class="info-container">
+            <div class="info__title">
+                <a class="sbs">Step-by-step</a>
+            </div>
+            <div class="Info__box">
+                <div class="info">
+                    <h1>1.</h1>
+                    <a class="title-info">Create a room</a>
+                    <a class="subtitle-info">It’s free, no registration required!</a>
+                </div>
+                <div class="info">
+                    <h1>2.</h1>
+                    <a class="title-info">Share the link</a>
+                    <a class="subtitle-info">to your friends or group</a>
+                </div>
+                <div class="info">
+                    <h1>3.</h1>
+                    <a class="title-info">Watch the galaxy</a>
+                    <a class="subtitle-info">right before sunset dawn</a>
+                </div>
+                <div class="slash"></div>
+
+                <div class="Settings__box">
+                    <div class="option">
+                        <img class="view-img" src="{{ asset('css/img/option-1.png') }}" alt="тут опции картинка">
+                        <a class="text">
+                            Username
+                        </a>
+                        <a class="text">
+                            Chat name will be displayed here
+                        </a>
+                        <input class="type" type="text" placeholder="Enter name here">
+                    </div>
+                    <div class="option">
+                        <img class="view-img" src="{{ asset('css/img/option-2.png') }}" alt="тут опции картинка">
+                        <a class="text">
+                            See you
+                        </a>
+                        <a class="text">
+                            Disable notifications
+                        </a>
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle-btn">
+                            <label for="toggle-btn"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-container">
+            <div class="Chat__box" id="chatBox">
+            </div>
+            <div class="input-group">
+                <input type="text" id="messageInput" placeholder="Введите ваше сообщение">
+                <button id="sendMessageBtn">Отправить</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer__box">
+        <div class="p-a-p">Proudly powered by Your Company</div>
+        <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</div>
+</body>

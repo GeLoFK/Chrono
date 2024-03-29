@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrono</title>
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <script src="{{ asset('js/index.js') }}"></script>
+</head>
+<body>
+<div class="page-container">
+    <div class="header">
+        <div class="first-page">
+            <button onclick="window.location.href = 'https://127.0.0.1:8000';" class="Logo">Chrono</button>
+            <div class="navigation__box">
+                <a class="navi">Info</a>
+                <a class="navi">Update</a>
+                <a class="navi" href="./login">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="second-page">
+        <div class="title__box">
+            <div class="title">
+                <a class="text-title">
+                    Watch movies with your dear ones
+                </a>
+                <a class="text-title">
+                    in the midst of space.
+                </a>
+            </div>
+            <div class="subtitle">
+                <a class="text-subtitle">
+                    Connect the voice of space
+                </a>
+            </div>
+        </div>
+        <button onclick="createRoom()" class="create-room">
+            <a class="text-button">
+                create your room
+            </a>
+        </button>
+        <div class="Logo-image">
+            <img class="img-logo" src="{{ asset('css/img/Logo.png') }}" alt="тут лого картинка">
+        </div>
+    </div>
+    <div class="info_container">
+        <div class="info__box">
+            <div class="info-img">
+                <img class="img-info" src="{{ asset('css/img/help-us.png') }}" alt="тут вспомогательная картинка">
+            </div>
+        </div>
+        <div class="info-text__box">
+            <a class="text-title2">
+                Need help navigating the cosmos? We've got you covered in space!
+            </a>
+            <a class="text-subtitle2">
+                Join Us for a Conscious Viewing Experience from the Station! Come aboard for mindful observation and
+                exploration.
+                Discover the wonders of space with us as we embark on an enlightening journey together. Your cosmic
+                adventure awaits!
+            </a>
+            <button class="help">Explore Now</button>
+        </div>
+    </div>
+    <div class="way-to-room">
+        <a class="text-way">1. Create a room</a>
+        <svg fill="currentColor" aria-hidden="true" class="arrow" preserveAspectRatio="none" viewBox="0 0 24 44">
+            <path d="m.293 0 22 22-22 22h1.414l22-22-22-22z"></path>
+        </svg>
+        <a class="text-way">2. Share the link</a>
+        <svg fill="currentColor" aria-hidden="true" class="arrow" preserveAspectRatio="none" viewBox="0 0 24 44">
+            <path d="m.293 0 22 22-22 22h1.414l22-22-22-22z"></path>
+        </svg>
+        <a class="text-way">3. Watch the galaxy</a>
+    </div>
+    <div class="third-page">
+        <div class="gallery__box">
+            <div class="view__box">
+                <div class="view-title__box">
+                    <a class="view-title">Is it difficult to make a choice?</a>
+                    <a class="view-title">Check out the new items</a>
+                </div>
+                <div class="view-subtitle__box">
+                    <img class="view-img" src="{{ asset('css/img/view-1.png') }}" alt="тут лого картинка">
+                    <div class="view-LM__box">
+                        <a class="LM-text">To learn more</a>
+                        <button class="Check">Check</button>
+                    </div>
+                </div>
+            </div>
+            <div class="view__box">
+                <div class="view-title__box">
+                    <a class="view-title">You can listen to music together</a>
+                    <a class="view-title">Choose a wave</a>
+                </div>
+                <div class="view-subtitle__box">
+                    <img class="view-img" src="{{ asset('css/img/view-2.png') }}" alt="тут лого картинка">
+                    <div class="view-LM__box">
+                        <a class="LM-text">To learn more</a>
+                        <button class="Check">Check</button>
+                    </div>
+                </div>
+            </div>
+            <div class="view__box">
+                <div class="view-title__box">
+                    <a class="view-title">Choose your unique paths</a>
+                    <a class="view-title">collecting the sky</a>
+                </div>
+                <div class="view-subtitle__box">
+                    <img class="view-img" src="{{ asset('css/img/view-3.png') }}" alt="тут лого картинка">
+                    <div class="view-LM__box">
+                        <a class="LM-text">To learn more</a>
+                        <button class="Check">Check</button>
+                    </div>
+                </div>
+            </div>
+            <div class="view__box">
+                <div class="view-title__box">
+                    <a class="view-title">About our chrono project</a>
+                    <a class="view-title">Thinking about you</a>
+                </div>
+                <div class="view-subtitle__box">
+                    <img class="view-img" src="{{ asset('css/img/view-4.png') }}" alt="тут лого картинка">
+                    <div class="view-LM__box">
+                        <a class="LM-text">To learn more</a>
+                        <button class="Check">Check</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="comment">
+            <a class="text-to-project">Welcome to our collaborative space! We invite you to share your insights,
+                questions, and creative ideas. Your contributions play a crucial role in shaping our project. Click the
+                link to join the conversation and be part of this vibrant community.<br><br> Thank you for being a
+                valuable member of our collaborative journey. Your engagement makes a difference, and we look forward to
+                seeing the magic we create together!</a>
+        </div>
+    </div>
+    <div class="footer__box">
+        <div class="p-a-p">Proudly powered by Your Company</div>
+        <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</div>
+</body>

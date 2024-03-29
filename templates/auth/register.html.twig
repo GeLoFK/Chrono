@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChronoLogin</title>
+    <link rel="stylesheet" href="{{ asset('css/registration.css') }}">
+</head>
+<body>
+<div class="header">
+    <div class="first-page">
+        <div class="Logo"></div>
+    </div>
+</div>
+<div class="login-container">
+    <div class="left-panel">
+        <div class="content">
+            <h1>Join Our Service!</h1>
+            <p>Register now to access our amazing features.</p>
+            <a onclick="window.location.href = 'https://127.0.0.1:8000/login';" class="signin-link">Back to login</a>
+        </div>
+    </div>
+    <div class="right-panel">
+        <form class="login-form">
+            <h2>Sign up</h2>
+            <a class="email-text">Email</a>
+            <div class="input-group">
+                <input type="email" required>
+            </div>
+            <a class="name-text">Username</a>
+            <div class="input-group">
+                <input type="name" required>
+            </div>
+            <a class="email-text">Password</a>
+            <div class="input-group">
+                <input type="password" required>
+            </div>
+            <a class="email-text">Confirm your Password</a>
+            <div class="input-group">
+                <input type="password" required>
+            </div>
+
+            <button onclick="window.location.href = 'https://127.0.0.1:8000/';" class="sing-up__button" type="submit">Sign in</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
