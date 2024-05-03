@@ -9,11 +9,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class LoginController extends AbstractController
 {
     /**
-     * @Route("/login", name="login")
+     * @Route("/login", name="app_login")
      */
     public function login(): Response
     {
-        // Ваш код здесь
-        return $this->render('auth/login.html.twig');
+        return $this->render('auth/login.html.twig', [
+            'controller_name' => 'LoginController',
+        ]);
     }
 }

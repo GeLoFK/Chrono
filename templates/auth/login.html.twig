@@ -17,23 +17,25 @@
         <div class="content">
             <h1>THEGOOD NETWORK</h1>
             <p>Join our space community today!<br> Explore the cosmos with our intergalactic platform.</p>
-                <a onclick="window.location.href = 'https://127.0.0.1:8000/registration';" class="signin-link">Already have an account? Sign in</a>
+            <a href="{{ path('login') }}" class="signin-link">Already have an account? Sign in</a>
         </div>
     </div>
     <div class="right-panel">
-        <form class="login-form">
-            <h2>Sign up</h2>
-            <a class="email-text">Email</a>
+        <form action="{{ path('login') }}" method="post" class="login-form">
             <div class="input-group">
-                <input type="email" required>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" value="{{ _email ?? '' }}">
             </div>
-            <a class="email-text">Password</a>
+
             <div class="input-group">
-                <input type="password" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password">
             </div>
-            <button onclick="window.location.href = 'https://127.0.0.1:8000/';" class="sing-up__button" type="submit">Sign up</button>
+
+            <button type="submit">Login</button>
         </form>
     </div>
+</div>
 </div>
 </body>
 </html>

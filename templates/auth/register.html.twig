@@ -21,26 +21,28 @@
         </div>
     </div>
     <div class="right-panel">
-        <form class="login-form">
-            <h2>Sign up</h2>
-            <a class="email-text">Email</a>
+        <form action="{{ path('registration') }}" method="post" class="registration-form">
             <div class="input-group">
-                <input type="email" required>
-            </div>
-            <a class="name-text">Username</a>
-            <div class="input-group">
-                <input type="name" required>
-            </div>
-            <a class="email-text">Password</a>
-            <div class="input-group">
-                <input type="password" required>
-            </div>
-            <a class="email-text">Confirm your Password</a>
-            <div class="input-group">
-                <input type="password" required>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" value="{{ _email ?? '' }}">
             </div>
 
-            <button onclick="window.location.href = 'https://127.0.0.1:8000/';" class="sing-up__button" type="submit">Sign in</button>
+            <div class="input-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" value="{{ _firstname ?? '' }}">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="input-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password">
+            </div>
+
+            <button type="submit">Register</button>
         </form>
     </div>
 </div>
