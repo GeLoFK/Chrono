@@ -13,10 +13,15 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class RegistrationController extends AbstractController
 {
-    /**
-     * @Route("/registration", name="registration")
-     */
+
+    #[Route("/registration", name : "registration")]
     public function registration(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager): Response
+    {
+        return $this->render('auth/register.html.twig');
+    }
+
+    #[Route('/registration_save_data', name: 'registration_save_data')]
+    public function registration_save_data(Request $request, UserPasswordHasherInterface $passwordHasher, EntityManagerInterface $entityManager)
     {
         if ($request->isMethod('POST')) {
             $user = new User();
@@ -43,6 +48,6 @@ class RegistrationController extends AbstractController
             }
         }
 
-        return $this->render('auth/register.html.twig');
     }
+
 }

@@ -8,6 +8,8 @@ doctrine:
 
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
+        types:
+            uuid: 'App\Doctrine\Types\UuidType' # Регистрация нового типа данных
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true

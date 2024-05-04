@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="right-panel">
-        <form action="{{ path('registration') }}" method="post" class="registration-form">
+        <form action="{{ path('registration_save_data') }}" method="post" class="registration-form">
             <div class="input-group">
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" value="{{ _email ?? '' }}">
