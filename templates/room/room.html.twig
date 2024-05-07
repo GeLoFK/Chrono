@@ -24,10 +24,8 @@
             <input type="text" id="videoLink" placeholder="Enter video link">
             <button id="confirmButton">Confirm</button>
         </div>
-        <div class="Link__box">
-            <div class="invite" id="copyText">
-                Copy link
-            </div>
+        <div class="Link__box" id="copyText">
+            Copy link
         </div>
     </div>
     <div class="second-container">
@@ -61,13 +59,13 @@
                 <div class="Settings__box">
                     <div class="option">
                         <img class="view-img" src="{{ asset('css/img/option-1.png') }}" alt="тут опции картинка">
-                        <a class="text">
+                        <a class="text" id="currentUsername">
                             Username
                         </a>
                         <a class="text">
                             Chat name will be displayed here
                         </a>
-                        <input class="type" type="text" placeholder="Enter name here">
+                        <input class="type" type="text" id="newUsernameInput" placeholder="Enter name here">
                     </div>
                     <div class="option">
                         <img class="view-img" src="{{ asset('css/img/option-2.png') }}" alt="тут опции картинка">

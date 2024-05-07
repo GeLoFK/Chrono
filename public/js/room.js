@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Определяем имя пользователя
+    var userId = document.getElementById('username').value;
+    var username = userId ? userId : generateGuestName();
+
+    // Функция для генерации уникального имени для гостя
+    function generateGuestName() {
+        return "Guest" + Math.floor(100000 + Math.random() * 900000);
+    }
+
+    // Ваш код продолжается здесь
+
     // Load the YouTube IFrame Player API asynchronously
     var tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -82,15 +93,30 @@ document.addEventListener('DOMContentLoaded', function() {
         chatBox.scrollTop = chatBox.scrollHeight;
     };
 
-    var username = document.getElementById('username').value;
+    var messageInput = document.getElementById('messageInput');
+
+
+    function changeUsername() {
+        var newUsername = document.getElementById('newUsernameInput').value;
+        // Отправить новое имя на сервер для обновления
+        // Ваш код для отправки нового имени на сервер
+        console.log("New username:", newUsername);
+    }
+
+    // Обработчик события нажатия клавиши Enter в поле ввода нового имени
+    document.getElementById('newUsernameInput').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            changeUsername();
+        }
+    });
     // Функция отправки сообщения через WebSocket
     function sendMessage() {
-        var messageContent = document.getElementById('messageInput').value;
+        var messageContent = messageInput.value;
         var message = { sender: username, message: messageContent };
         conn.send(JSON.stringify(message));
 
         // Очищаем поле ввода
-        document.getElementById('messageInput').value = '';
+        messageInput.value = '';
 
         // Создаем элемент сообщения
         var messageElement = document.createElement('div');
@@ -113,6 +139,14 @@ document.addEventListener('DOMContentLoaded', function() {
         chatBox.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
+
+    // Обработчик события нажатия клавиши Enter в поле ввода сообщения
+    messageInput.addEventListener('keydown', function(event) {
+        if (event.keyCode === 13) { // Код клавиши Enter
+            event.preventDefault();
+            sendMessage();
+        }
+    });
 
     // Функция отображения сообщения от другого пользователя
     function displayMessageFromOtherUser(sender, message) {
