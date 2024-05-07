@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Confirm button not found.");
     }
 
-// Функция отображения видео по ссылке
+    // Функция отображения видео по ссылке
     function showVideo() {
         var videoLink = document.getElementById('videoLink').value;
         if (videoLink.trim() === '') {
@@ -41,24 +41,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Отправляем сообщение с информацией о видео через WebSocket
-        conn.send(JSON.stringify({ message: "Playing video: " + videoLink }));
+        var message = { sender: "You", message: "Playing video: " + videoLink };
+        conn.send(JSON.stringify(message));
 
         // Очищаем поле ввода ссылки
         document.getElementById('videoLink').value = '';
     }
 
-// Функция извлечения идентификатора видео из ссылки YouTube
+    // Функция извлечения идентификатора видео из ссылки YouTube
     function extractVideoId(url) {
         var regExp = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
         var match = url.match(regExp);
         return (match && match[1].length === 11) ? match[1] : null;
     }
 
-// Функция, вызываемая при готовности плеера
+    // Функция, вызываемая при готовности плеера
     function onPlayerReady(event) {
         event.target.playVideo();
     }
-
 
     // Обработчик сообщения от WebSocket сервера
     conn.onmessage = function(e) {
@@ -82,23 +82,56 @@ document.addEventListener('DOMContentLoaded', function() {
         chatBox.scrollTop = chatBox.scrollHeight;
     };
 
+    var username = document.getElementById('username').value;
     // Функция отправки сообщения через WebSocket
     function sendMessage() {
         var messageContent = document.getElementById('messageInput').value;
-        conn.send(JSON.stringify({ message: messageContent }));
+        var message = { sender: username, message: messageContent };
+        conn.send(JSON.stringify(message));
+
+        // Очищаем поле ввода
         document.getElementById('messageInput').value = '';
 
-        // Добавляем сообщение в чат после его отправки
+        // Создаем элемент сообщения
         var messageElement = document.createElement('div');
         messageElement.classList.add('message');
 
+        // Добавляем имя отправителя к сообщению
+        var senderElement = document.createElement('span');
+        senderElement.classList.add('sender');
+        senderElement.textContent = username + ': ';
+        messageElement.appendChild(senderElement);
+
+        // Добавляем текст сообщения
         var contentElement = document.createElement('span');
         contentElement.classList.add('content');
         contentElement.textContent = messageContent;
-
-
         messageElement.appendChild(contentElement);
 
+        // Добавляем сообщение в чат
+        var chatBox = document.getElementById('chatBox');
+        chatBox.appendChild(messageElement);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    // Функция отображения сообщения от другого пользователя
+    function displayMessageFromOtherUser(sender, message) {
+        var messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+
+        // Добавляем имя отправителя к сообщению
+        var senderElement = document.createElement('span');
+        senderElement.classList.add('sender');
+        senderElement.textContent = sender + ': '; // Отображаем имя отправителя
+        messageElement.appendChild(senderElement);
+
+        // Добавляем текст сообщения
+        var contentElement = document.createElement('span');
+        contentElement.classList.add('content');
+        contentElement.textContent = message;
+        messageElement.appendChild(contentElement);
+
+        // Добавляем сообщение в чат
         var chatBox = document.getElementById('chatBox');
         chatBox.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight;
