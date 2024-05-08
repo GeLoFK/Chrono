@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChronoLogin</title>
     <link rel="stylesheet" href="{{ asset('css/registration.css') }}">
+    <script src="{{ asset('js/autoriz.js') }}"></script>
 </head>
 <body>
 <div class="header">
@@ -17,7 +18,7 @@
         <div class="content">
             <h1>Join Our Service!</h1>
             <p>Register now to access our amazing features.</p>
-            <a onclick="window.location.href = 'https://127.0.0.1:8000/login';" class="signin-link">Back to login</a>
+            <a href="{{ path('app_login') }}" class="signin-link">Back to login</a>
         </div>
     </div>
     <div class="right-panel">
@@ -41,7 +42,6 @@
                 <label for="confirm_password">Confirm Password:</label>
                 <input type="password" id="confirm_password" name="confirm_password">
             </div>
-
             <button type="submit">Register</button>
         </form>
     </div>

@@ -12,6 +12,9 @@ login:
     path: /login
     controller: App\Controller\Auth\LoginController::login
 
+app_logout:
+    path: /logout
+    controller: App\Controller\Auth\LoginController::logout
 registration:
     path: /registration
     controller: App\Controller\Auth\RegistrationController::registration

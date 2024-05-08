@@ -67,11 +67,23 @@ input[type="text"] {
 }
 .Link__box {
     margin-right: 100px;
-    background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 10px;
     width: 300px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.Link__box:hover {
+    /* Затемнение при наведении */
+    background-color: #0056b3;
+}
+
+.Link__box:active {
+    /* Затемнение при нажатии */
+    background-color: #004080;
 }
 
 .invite {

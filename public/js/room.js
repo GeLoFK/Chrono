@@ -1,15 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Определяем имя пользователя
-    var userId = document.getElementById('username').value;
-    var username = userId ? userId : generateGuestName();
-
-    // Функция для генерации уникального имени для гостя
-    function generateGuestName() {
-        return "Guest" + Math.floor(100000 + Math.random() * 900000);
-    }
-
-    // Ваш код продолжается здесь
-
     // Load the YouTube IFrame Player API asynchronously
     var tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -71,6 +60,18 @@ document.addEventListener('DOMContentLoaded', function() {
         event.target.playVideo();
     }
 
+    var copyTextElement = document.getElementById('copyText');
+
+    // Добавляем обработчик события клика на элемент
+    copyTextElement.addEventListener('click', function() {
+        // Создаем временный элемент input для копирования ссылки
+        var urlInput = document.createElement('input');
+        urlInput.setAttribute('value', window.location.href);
+        document.body.appendChild(urlInput);
+        urlInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(urlInput);
+    });
     // Обработчик сообщения от WebSocket сервера
     conn.onmessage = function(e) {
         var messageData = JSON.parse(e.data);
@@ -96,12 +97,32 @@ document.addEventListener('DOMContentLoaded', function() {
     var messageInput = document.getElementById('messageInput');
 
 
-    function changeUsername() {
-        var newUsername = document.getElementById('newUsernameInput').value;
-        // Отправить новое имя на сервер для обновления
-        // Ваш код для отправки нового имени на сервер
-        console.log("New username:", newUsername);
+
+    var userId = document.getElementById('username').value;
+    var username = userId ? userId : generateGuestName();
+
+    // Функция для генерации уникального имени для гостя
+    function generateGuestName() {
+        return "Guest" + Math.floor(100000 + Math.random() * 900000);
     }
+
+    // Функция для изменения имени пользователя
+    function changeUsername() {
+        var newUsername = document.getElementById('newUsernameInput').value.trim();
+        if (newUsername !== '') {
+            username = newUsername; // Обновляем имя пользователя
+            console.log("New username:", username); // Добавьте здесь код для отправки нового имени на сервер
+            document.getElementById('currentUsername').textContent = username; // Обновляем отображаемое имя
+            document.getElementById('newUsernameInput').value = ''; // Очищаем поле ввода
+        }
+    }
+
+    // Обработчик события нажатия клавиши Enter в поле ввода нового имени
+    document.getElementById('newUsernameInput').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            changeUsername();
+        }
+    });
 
     // Обработчик события нажатия клавиши Enter в поле ввода нового имени
     document.getElementById('newUsernameInput').addEventListener('keypress', function(event) {
@@ -111,7 +132,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     // Функция отправки сообщения через WebSocket
     function sendMessage() {
-        var messageContent = messageInput.value;
+        var messageContent = messageInput.value.trim(); // Удаляем лишние пробелы в начале и конце строки
+        if (messageContent === '') {
+            // Если сообщение пустое, не отправляем его
+            return;
+        }
+
         var message = { sender: username, message: messageContent };
         conn.send(JSON.stringify(message));
 
@@ -140,13 +166,14 @@ document.addEventListener('DOMContentLoaded', function() {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Обработчик события нажатия клавиши Enter в поле ввода сообщения
+// Обработчик события нажатия клавиши Enter в поле ввода сообщения
     messageInput.addEventListener('keydown', function(event) {
         if (event.keyCode === 13) { // Код клавиши Enter
             event.preventDefault();
             sendMessage();
         }
     });
+
 
     // Функция отображения сообщения от другого пользователя
     function displayMessageFromOtherUser(sender, message) {

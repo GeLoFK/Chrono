@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChronoLogin</title>
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <script src="{{ asset('js/autoriz.js') }}"></script>
 </head>
 <body>
 <div class="header">
@@ -17,7 +18,7 @@
         <div class="content">
             <h1>THEGOOD NETWORK</h1>
             <p>Join our space community today!<br> Explore the cosmos with our intergalactic platform.</p>
-            <a href="{{ path('app_login') }}" class="signin-link">Already have an account? Sign in</a>
+            <a href="{{ path('registration') }}" class="signin-link">Create an account</a>
         </div>
     </div>
     <div class="right-panel">
@@ -30,8 +31,6 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="_password">
             </div>
-            {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"> #}
             <button type="submit">login</button>
         </form>
     </div>
