@@ -18,6 +18,8 @@ class RoomRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
         $entityManager->persist($room);
         $entityManager->flush();
+        // Обновление сущности комнаты для сохранения изменений в чате
+        $entityManager->refresh($room);
     }
 
     public function findById(string $id): ?Room
